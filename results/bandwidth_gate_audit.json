@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "contract_version": "core_v3_20260715_r3",
+  "contract_sha256": "82de33fe6659bd741d774251e01e7602e4460a32770790dc336b7a7ff199b26c",
+  "summary_rows": 243000,
+  "detail_rows": 72900000,
+  "primary_deadline_ms": 250,
+  "best_fixed_profile_wins": 0,
+  "capacity_greedy_profile_wins": 0,
+  "aggregate_gate_pass": false,
+  "noninferiority_gate_pass": true,
+  "G4_gate_pass": false,
+  "outputs": {
+    "summary": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_bandwidth_summary.csv",
+      "sha256": "671f9e81b2540b21d82b7b55bfc25e646f5342e8e7c748f129f0cd5078b648b4"
+    },
+    "detail": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_bandwidth_detail.csv",
+      "sha256": "4b049e27e784d8d04ff4a6bdbed5c5532ca0886001a0b6f646be6ad8efb1e4fd"
+    },
+    "statistics": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_bandwidth_statistics.csv",
+      "sha256": "df48223d112e24f7693c6153e7d74e1e55f30a6dc16c0beb760ec1f5294f0352"
+    }
+  }
+}

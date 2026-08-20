@@ -1,0 +1,97 @@
+{
+  "status": "pass",
+  "extension_version": "core_v3_decoder_extension_20260717_r1",
+  "extension_contract_sha256": "1148399a39b4a24357c253da6c624875c2262039061da9cf9f83bdf34197e05a",
+  "seed_expansion_sha256": "c3233ba9535c7f7ef7bba6f1eebc81744bb31d7db6db5b2257cff1dbfc7390ac",
+  "model_seeds": [
+    17,
+    29,
+    43,
+    59,
+    71
+  ],
+  "byte_identical_pairs": true,
+  "combined_rows": 122880,
+  "paired_actions": 61440,
+  "visdrone_positive_prefixes": 4,
+  "required_positive_prefixes": 3,
+  "confirmatory_gate_pass": true,
+  "visdrone_ms_ssim": [
+    {
+      "dataset": "visdrone",
+      "metric": "ms_ssim",
+      "prefix_k": 1,
+      "effect": 0.032445722678896484,
+      "ci_low": 0.027950079171549073,
+      "ci_high": 0.03639068259333081,
+      "raw_p": 0.00019998000199980003,
+      "holm_p": 0.0007999200079992001,
+      "seed_effects": [
+        0.03183546083154297,
+        0.03229853895205077,
+        0.03531650063686523,
+        0.038573357887744145,
+        0.024204755086279298
+      ],
+      "resampling_unit": "source_image",
+      "gate_pass": true
+    },
+    {
+      "dataset": "visdrone",
+      "metric": "ms_ssim",
+      "prefix_k": 2,
+      "effect": 0.03119035775285156,
+      "ci_low": 0.027436241098583496,
+      "ci_high": 0.033986667942245856,
+      "raw_p": 0.00019998000199980003,
+      "holm_p": 0.0007999200079992001,
+      "seed_effects": [
+        0.0318033367230957,
+        0.03140388728803711,
+        0.03398780606376953,
+        0.03475397958969727,
+        0.0240027790996582
+      ],
+      "resampling_unit": "source_image",
+      "gate_pass": true
+    },
+    {
+      "dataset": "visdrone",
+      "metric": "ms_ssim",
+      "prefix_k": 3,
+      "effect": 0.031029206381074214,
+      "ci_low": 0.027537411789157713,
+      "ci_high": 0.03356763594492969,
+      "raw_p": 0.00019998000199980003,
+      "holm_p": 0.0007999200079992001,
+      "seed_effects": [
+        0.03190661125717774,
+        0.031214933814990232,
+        0.03320353326889648,
+        0.034375613467675786,
+        0.02444534009663086
+      ],
+      "resampling_unit": "source_image",
+      "gate_pass": true
+    },
+    {
+      "dataset": "visdrone",
+      "metric": "ms_ssim",
+      "prefix_k": 4,
+      "effect": 0.030890924076044924,
+      "ci_low": 0.027648163615617925,
+      "ci_high": 0.03321909902428637,
+      "raw_p": 0.00019998000199980003,
+      "holm_p": 0.0007999200079992001,
+      "seed_effects": [
+        0.032168922188281254,
+        0.031060516862060544,
+        0.03290996720947266,
+        0.03375289638598633,
+        0.024562317734423827
+      ],
+      "resampling_unit": "source_image",
+      "gate_pass": true
+    }
+  ]
+}

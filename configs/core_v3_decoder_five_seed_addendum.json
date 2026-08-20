@@ -1,0 +1,33 @@
+{
+  "addendum_version": "core_v3_decoder_five_seed_20260723_r1",
+  "status": "user_authorized_frozen_seed_expansion",
+  "scope": "increase_independent_full_pipeline_seeds_for_decoder_confirmation_only",
+  "parent_contract_version": "core_v3_20260715_r3",
+  "parent_contract_sha256": "82de33fe6659bd741d774251e01e7602e4460a32770790dc336b7a7ff199b26c",
+  "decoder_extension_version": "core_v3_decoder_extension_20260717_r1",
+  "decoder_extension_contract_sha256": "1148399a39b4a24357c253da6c624875c2262039061da9cf9f83bdf34197e05a",
+  "existing_model_seeds": [17, 29, 43],
+  "additional_model_seeds": [59, 71],
+  "combined_model_seeds": [17, 29, 43, 59, 71],
+  "allowed_protocol_changes": [
+    "model_seed_count",
+    "hierarchical_bootstrap_seed_dimension"
+  ],
+  "frozen_invariants": [
+    "model_architecture",
+    "training_data",
+    "development_data",
+    "test_data",
+    "losses",
+    "optimizer",
+    "training_steps",
+    "checkpoint_selection",
+    "sender_cache_format",
+    "bitstream_format",
+    "quality_metrics",
+    "bootstrap_iterations",
+    "confidence_level",
+    "holm_correction",
+    "confirmatory_gate"
+  ]
+}

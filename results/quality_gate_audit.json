@@ -1,0 +1,215 @@
+{
+  "status": "pass",
+  "contract_version": "core_v3_20260715_r3",
+  "contract_sha256": "82de33fe6659bd741d774251e01e7602e4460a32770790dc336b7a7ff199b26c",
+  "code_hash": "8d60a8da8122da1a8f1d2157eed9ade2b1ed7a3680d0839c70e94906e0c0c4d8",
+  "row_counts": {
+    "complexity": 93000,
+    "asymmetry": 73728,
+    "ordering": 884736,
+    "roundtrip": 11520,
+    "operating": 96
+  },
+  "E1": {
+    "gate_pass": true,
+    "seeds": [
+      {
+        "seed": 17,
+        "analysis_params_reduction": 0.5315692240817214,
+        "analysis_macs_reduction": 0.7073317307692308,
+        "sender_params_below_anchor": true,
+        "sender_macs_below_anchor": true,
+        "entropy_and_packing_timed": true
+      },
+      {
+        "seed": 29,
+        "analysis_params_reduction": 0.5315692240817214,
+        "analysis_macs_reduction": 0.7073317307692308,
+        "sender_params_below_anchor": true,
+        "sender_macs_below_anchor": true,
+        "entropy_and_packing_timed": true
+      },
+      {
+        "seed": 43,
+        "analysis_params_reduction": 0.5315692240817214,
+        "analysis_macs_reduction": 0.7073317307692308,
+        "sender_params_below_anchor": true,
+        "sender_macs_below_anchor": true,
+        "entropy_and_packing_timed": true
+      }
+    ]
+  },
+  "E2": {
+    "gate_pass": true,
+    "bitstream_byte_equality": true,
+    "visdrone_prefixes_passed": 4,
+    "visdrone": [
+      {
+        "effect": 0.031246305210465494,
+        "ci_low": 0.02776198915868856,
+        "ci_high": 0.03364634176508707,
+        "raw_p": 0.00019998000199980003,
+        "prefix_k": 1,
+        "seed_effects": [
+          0.03354127495566406,
+          0.03258576855317383,
+          0.027611872122558594
+        ],
+        "holm_p": 0.0007999200079992001,
+        "gate_pass": true
+      },
+      {
+        "effect": 0.031256671809440105,
+        "ci_low": 0.02822173437725179,
+        "ci_high": 0.03358083602223348,
+        "raw_p": 0.00019998000199980003,
+        "prefix_k": 2,
+        "seed_effects": [
+          0.03359148351455078,
+          0.0320426778324707,
+          0.02813585408129883
+        ],
+        "holm_p": 0.0007999200079992001,
+        "gate_pass": true
+      },
+      {
+        "effect": 0.031227465350651042,
+        "ci_low": 0.028582928223931072,
+        "ci_high": 0.03412792958858194,
+        "raw_p": 0.00019998000199980003,
+        "prefix_k": 3,
+        "seed_effects": [
+          0.034216505214257814,
+          0.031069511286621092,
+          0.028396379551074217
+        ],
+        "holm_p": 0.0007999200079992001,
+        "gate_pass": true
+      },
+      {
+        "effect": 0.03130923858632812,
+        "ci_low": 0.029181615735902503,
+        "ci_high": 0.03378075423284627,
+        "raw_p": 0.00019998000199980003,
+        "prefix_k": 4,
+        "seed_effects": [
+          0.03385715195371093,
+          0.030976249719287106,
+          0.02909431408598633
+        ],
+        "holm_p": 0.0007999200079992001,
+        "gate_pass": true
+      }
+    ],
+    "uavid": {
+      "effect": 0.041126125771585774,
+      "ci_low": 0.03601688117336442,
+      "ci_high": 0.04609487372310399,
+      "raw_p": 0.00019998000199980003
+    }
+  },
+  "E3": {
+    "gate_pass": false,
+    "byte_strictly_monotonic": true,
+    "msssim_violation_rate": 0.23399522569444445,
+    "visdrone": {
+      "alternative": {
+        "effect": -0.30404091174495446,
+        "ci_low": -0.30919458245494874,
+        "ci_high": -0.2988319767101758,
+        "raw_p": 0.00019998000199980003
+      },
+      "reverse": {
+        "effect": -0.2947324451329753,
+        "ci_low": -0.3002405154376669,
+        "ci_high": -0.2892340265575232,
+        "raw_p": 0.00019998000199980003
+      },
+      "ordered_ranks": [
+        20,
+        20,
+        20
+      ]
+    },
+    "uavid": {
+      "alternative": {
+        "effect": -0.22913022316204593,
+        "ci_low": -0.24272825689300329,
+        "ci_high": -0.216320334103122,
+        "raw_p": 0.00019998000199980003
+      },
+      "reverse": {
+        "effect": -0.2200419074354437,
+        "ci_low": -0.23292004787743087,
+        "ci_high": -0.20711456122898256,
+        "raw_p": 0.00019998000199980003
+      },
+      "ordered_ranks": [
+        21,
+        20,
+        20
+      ]
+    },
+    "budget_tests": [
+      {
+        "effect": -0.4034552028703125,
+        "ci_low": -0.4107267952165906,
+        "ci_high": -0.3963107320040808,
+        "raw_p": 0.00019998000199980003,
+        "budget_percent": 25,
+        "holm_p": 0.0007999200079992001,
+        "gate_pass": false
+      },
+      {
+        "effect": -0.40452635877581383,
+        "ci_low": -0.41198726597243857,
+        "ci_high": -0.39692664865171423,
+        "raw_p": 0.00019998000199980003,
+        "budget_percent": 50,
+        "holm_p": 0.0007999200079992001,
+        "gate_pass": false
+      },
+      {
+        "effect": -0.39692151576064455,
+        "ci_low": -0.40475865008925577,
+        "ci_high": -0.38925380754354083,
+        "raw_p": 0.00019998000199980003,
+        "budget_percent": 75,
+        "holm_p": 0.0007999200079992001,
+        "gate_pass": false
+      },
+      {
+        "effect": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "raw_p": 1.0,
+        "budget_percent": 100,
+        "holm_p": 1.0,
+        "gate_pass": false
+      }
+    ]
+  },
+  "all_gates_pass": false,
+  "outputs": {
+    "complexity": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_complexity_breakdown.csv",
+      "sha256": "f1cce0d078f887acc78ef28be49b852198ff6a5bbd750b392035583bd8646e90"
+    },
+    "asymmetry": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_decoder_asymmetry.csv",
+      "sha256": "cbe49e7d01842c1737f61056454ac9bb52c37066bdb302dd29bf9faf41937e22"
+    },
+    "ordering": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_progressive_ordering.csv",
+      "sha256": "625fa0f4b269bd31763312139557bb00d9c73557474fa0df3868c9280929c349"
+    },
+    "roundtrip": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_bitstream_roundtrip.csv",
+      "sha256": "624815c5b703b80d7b22862966d8fa75ab5361918afa247b4d226f6b3b653bc2"
+    },
+    "operating": {
+      "path": "/data/home/xinxi-zhyh/xinxi-zhyh/projects/BAA-NIC_RemoteSensing_Paper_core_v3/data/core_v3_operating_points.csv",
+      "sha256": "095a7bc40acecd620b7d79c07722c728aeb8c01a36628be4a78760cc994f560a"
+    }
+  }
+}

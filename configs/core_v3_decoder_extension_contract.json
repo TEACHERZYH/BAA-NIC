@@ -1,0 +1,66 @@
+{
+  "extension_version": "core_v3_decoder_extension_20260717_r1",
+  "parent_contract_version": "core_v3_20260715_r3",
+  "parent_contract_sha256": "82de33fe6659bd741d774251e01e7602e4460a32770790dc336b7a7ff199b26c",
+  "scope": "deterministic_same_bitstream_server_decoder_extension",
+  "model_seeds": [17, 29, 43],
+  "q_indices": [0, 1, 2, 3],
+  "prefixes": [1, 2, 3, 4],
+  "architecture": {
+    "latent_channels": 192,
+    "group_count": 4,
+    "condition_dim": 64,
+    "stage_widths": [192, 160, 128, 96, 64],
+    "stage_blocks": [3, 2, 2, 1, 1],
+    "stage_heads": [6, 5, 4, 3, 2],
+    "transformer_stage_count": 3,
+    "ffn_expansion": 2.0,
+    "residual_logit_scale": 0.25,
+    "conditioning": ["q_index", "received_group_count"],
+    "decoder_only": true,
+    "changes_bitstream": false
+  },
+  "training": {
+    "effective_batch_size": 8,
+    "micro_batch_size_default": 1,
+    "pilot_seed": 17,
+    "pilot_steps": 5000,
+    "maximum_steps": 30000,
+    "initial_lr": 0.0001,
+    "minimum_lr": 0.000001,
+    "weight_decay": 0.0001,
+    "monitor_validation_interval": 500,
+    "full_validation_interval": 2500,
+    "full_validation_patience": 4,
+    "minimum_steps": 15000,
+    "decoder_seed_offset": 2000,
+    "loss": {
+      "l1_weight": 1.0,
+      "mse_weight": 1.0,
+      "cross_rate_weight": 0.1,
+      "edge_weight": 0.05
+    }
+  },
+  "pilot_gate": {
+    "minimum_development_ms_ssim_at_5000": 0.81,
+    "requires_finite_loss": true,
+    "requires_deterministic_forward": true,
+    "requires_same_sender_cache": true
+  },
+  "confirmatory_endpoint": {
+    "primary_metric": "paired_ms_ssim_delta_enhanced_minus_heavy",
+    "secondary_metrics": ["psnr", "lpips", "decoder_latency_ms", "decoder_params", "decoder_macs"],
+    "primary_dataset": "visdrone",
+    "cross_dataset_check": "uavid",
+    "bootstrap_iterations": 10000,
+    "confidence_level": 0.95,
+    "multiple_testing": "holm_across_four_prefixes",
+    "minimum_positive_prefixes": 3,
+    "require_nonnegative_seed_effects": true
+  },
+  "fallback": {
+    "pilot_gate_failure": "preserve_outputs_and_stop_extension",
+    "confirmatory_gate_failure": "retain_as_negative_decoder_extension_evidence",
+    "manuscript_replacement": "only_after_confirmatory_gate_pass"
+  }
+}

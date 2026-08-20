@@ -1,0 +1,6 @@
+{
+  "datasets": {
+    "visdrone_root": "/path/to/VisDrone",
+    "uavid_root": "/path/to/UAVid"
+  }
+}

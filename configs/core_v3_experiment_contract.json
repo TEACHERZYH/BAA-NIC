@@ -1,0 +1,192 @@
+{
+  "contract_version": "core_v3_20260715_r3",
+  "status": "reviewed_execution_contract",
+  "model": {
+    "entrypoint": "models.baa_nic.BAANICModel",
+    "latent_groups": 4,
+    "group_channels": 48,
+    "active_ratios": [0.25, 0.5, 0.75, 1.0],
+    "q_indices": [0, 1, 2, 3],
+    "q_steps": [1.0, 1.4142135624, 2.0, 2.8284271247],
+    "hyper_q_step": 1.0,
+    "group_hyper_analysis_domain": "abs_y_divided_by_q_step",
+    "probability_parameter_domain": "scaled_symbol_domain",
+    "action_space": "cartesian_product_q_by_prefix",
+    "enhancement_layers": 0,
+    "symmetric_light_decoder_macs_tolerance": 0.1,
+    "symmetric_light_decoder_params_tolerance": 0.2,
+    "heavy_to_light_minimum_params_ratio": 2.0,
+    "heavy_to_light_minimum_macs_ratio": 2.0,
+    "decoder_architecture_frozen_before_gate": "G0a",
+    "decoder_complexity_executed_paths_only": true
+  },
+  "bitstream": {
+    "magic_ascii": "BAANIC3",
+    "magic_field_bytes": 8,
+    "magic_bytes_hex": "4241414e49433300",
+    "header_bytes": 144,
+    "segment_miniheader_bytes": 24,
+    "physical_group_order": [1, 2, 3, 4],
+    "header_checksum": "crc32_header_only",
+    "segment_checksum": "crc32_per_segment",
+    "whole_stream_checksum": false,
+    "full_stream_required_for_encoder_timing": true
+  },
+  "data": {
+    "split_seed": 20260715,
+    "source_id_ordering": "utf8_bytewise_sorted_normalized_posix_relative_path",
+    "shuffle_algorithm": "numpy_pcg64_permutation",
+    "crop_size": 512,
+    "visdrone_development_source_images": 256,
+    "development_monitor_tiles": 64,
+    "visdrone_test_tiles": 512,
+    "uavid_test_tiles": 256,
+    "one_tile_per_visdrone_test_source": true,
+    "uavid_cluster_field": "sequence_or_clip_id"
+  },
+  "training": {
+    "model_seeds": [17, 29, 43],
+    "effective_batch_size": 8,
+    "amp": true,
+    "reconstruction_warmup_steps": 2000,
+    "balanced_action_window_steps": 1600,
+    "joint": {
+      "minimum_steps": 30000,
+      "maximum_steps": 60000,
+      "monitor_validation_interval": 1000,
+      "full_validation_interval": 5000,
+      "full_validation_patience": 4,
+      "optimizer": "adamw",
+      "initial_lr": 0.0001,
+      "weight_decay": 0.0001,
+      "lr_warmup_steps": 1000,
+      "minimum_lr": 0.000001,
+      "scheduler": "cosine",
+      "aux_optimizer": "adam",
+      "aux_lr": 0.001
+    },
+    "decoder_only": {
+      "minimum_steps": 15000,
+      "maximum_steps": 30000,
+      "monitor_validation_interval": 500,
+      "full_validation_interval": 2500,
+      "full_validation_patience": 4,
+      "optimizer": "adamw",
+      "initial_lr": 0.0001,
+      "weight_decay": 0.0001,
+      "minimum_lr": 0.000001,
+      "scheduler": "cosine",
+      "decoder_seed_offset": 1000
+    },
+    "loss": {
+      "l1_weight": 1.0,
+      "mse_weight": 1.0,
+      "likelihood_bpp_weight": 0.01,
+      "cross_rate_weight": 0.05,
+      "roi_weight": 0.0,
+      "edge_weight": 0.0,
+      "teacher_weight": 0.0,
+      "detector_weight": 0.0,
+      "perceptual_weight": 0.0
+    }
+  },
+  "statistics": {
+    "bootstrap_iterations": 10000,
+    "alpha": 0.05,
+    "multiple_comparison_correction": "holm",
+    "c2_primary_metric": "ms_ssim",
+    "c3a_primary_metric": "ms_ssim_progressive_auc_over_per_image_full_stream_byte_fraction",
+    "c3b_primary_metric": "delivered_times_ms_ssim",
+    "c3b_aggregate_gate_requires_nonnegative_ci_lower": true,
+    "c3a_byte_budgets_percent": [25, 50, 75, 100],
+    "ms_ssim_monotonic_tolerance": 0.0001,
+    "psnr_monotonic_tolerance_db": 0.01,
+    "lpips_monotonic_tolerance": 0.0001
+  },
+  "artifact_contract": {
+    "required_provenance_fields": [
+      "contract_version",
+      "contract_sha256",
+      "code_hash"
+    ],
+    "require_checkpoint_or_manifest_hash": true,
+    "reject_duplicate_pairing_keys": true,
+    "reject_nonfinite_primary_metrics": true,
+    "schemas_frozen_before_gate": "G0a"
+  },
+  "network_replay": {
+    "frames_per_realization": 300,
+    "frames_per_second": 4.0,
+    "deadlines_ms": [100, 250, 500],
+    "primary_deadline_ms": 250,
+    "development_realizations_per_profile": 200,
+    "test_realizations_per_profile": 1000,
+    "development_seed_start": 110000,
+    "test_seed_start": 210000,
+    "mtu_bytes": 1500,
+    "network_payload_bytes": 1460,
+    "packet_overhead_bytes": 40,
+    "queue_policy": "fcfs_drop_incomplete_segments_at_frame_deadline",
+    "pipeline_workers": {
+      "encoder": 1,
+      "transmitter": 1,
+      "decoder": 1
+    },
+    "stage_service": "parallel_stages_fcfs_nonpreemptive_tasks",
+    "expired_output_policy": "finish_started_compute_then_discard_expired_output",
+    "arq": false,
+    "goodput_includes_packet_loss_once": true,
+    "controller_target_ontime_probability": 0.9,
+    "controller_goodput_lower_quantile": 0.1,
+    "controller_test_information": "delayed_link_estimate_current_deadline_causal_worker_availability_and_frozen_development_calibration_only",
+    "controller_forbidden_test_information": ["image", "image_id", "latent", "reconstruction_quality", "future_link_state", "test_statistics"],
+    "packetization_formula": "network_bytes=payload_bytes+ceil(payload_bytes/1460)*40",
+    "controller_no_feasible_action_fallback": "encode_once_at_q3_nominal_prefix1_then_send_zero_bytes_if_base_exceeds_budget",
+    "severe_link_development_quantile": 0.2,
+    "estimator_frame_delay": 1,
+    "estimator_log_noise_sigma": 0.15,
+    "packet_loss_ewma_alpha": 0.2,
+    "packet_loss_calibration_bins": [0.0, 0.05, 0.15, 1.0],
+    "minimum_samples_per_calibration_bin": 30,
+    "development_image_sampling": "permute_256_development_tiles_then_append_44_from_permutation_seed_plus_10000",
+    "test_image_sampling": "300_without_replacement_from_512_test_tiles_by_realization_seed",
+    "controller_initial_goodput": "pooled_development_effective_goodput_median",
+    "controller_initial_packet_loss": 0.0,
+    "controller_profile_label_available": false,
+    "require_action_specific_development_and_test_latency_caches": true,
+    "profiles": {
+      "smooth_ar": {
+        "mean_mbps": 4.0,
+        "phi": 0.95,
+        "innovation_sigma": 0.12,
+        "minimum_mbps": 0.4,
+        "maximum_mbps": 8.0
+      },
+      "drop_recovery": {
+        "high_mean_mbps": 5.5,
+        "low_mean_mbps": 0.8,
+        "high_to_low_probability": 0.03,
+        "low_to_high_probability": 0.12,
+        "high_log_sigma": 0.1,
+        "low_log_sigma": 0.15,
+        "minimum_mbps": 0.3,
+        "maximum_mbps": 8.0
+      },
+      "burst_loss": {
+        "raw_mean_mbps": 4.5,
+        "raw_phi": 0.9,
+        "raw_innovation_sigma": 0.1,
+        "good_to_bad_probability": 0.02,
+        "bad_to_good_probability": 0.2,
+        "good_loss_range": [0.0, 0.02],
+        "bad_loss_range": [0.12, 0.3]
+      }
+    },
+    "noninferiority": {
+      "p99_waiting_relative": 0.05,
+      "p99_waiting_absolute_ms": 5.0,
+      "overshoot_percentage_points": 1.0,
+      "deadline_violation_percentage_points": 1.0
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "contract_version": "core_v3_20260715_r3",
+  "schemas": {
+    "core_v3_bitstream_roundtrip.csv": {
+      "fields": ["contract_version", "contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "dataset", "seed", "image_id", "q_index", "subset_mask", "prefix_k", "bytes", "bpp", "decode_ok", "crc_ok", "byte_prefix_equal", "reconstruction_sha256"],
+      "pairing_key": ["dataset", "seed", "image_id", "q_index", "subset_mask"],
+      "finite_fields": ["bytes", "bpp"],
+      "sha256_fields": ["contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "reconstruction_sha256"]
+    },
+    "core_v3_operating_points.csv": {
+      "fields": ["contract_version", "contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "dataset", "seed", "q_index", "prefix_k", "images", "median_bytes", "median_bpp", "stage", "evidence_gate_applicable"],
+      "pairing_key": ["dataset", "seed", "q_index", "prefix_k", "stage"],
+      "finite_fields": ["images", "median_bytes", "median_bpp"],
+      "sha256_fields": ["contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256"]
+    },
+    "core_v3_complexity_breakdown.csv": {
+      "fields": ["contract_version", "contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "model", "component", "side", "device", "image_id", "repeat", "threads", "params", "checkpoint_bytes", "macs_per_pixel", "gflops_512", "peak_memory_bytes", "latency_ms"],
+      "pairing_key": ["model", "component", "side", "device", "image_id", "repeat"],
+      "finite_fields": ["repeat", "threads", "params", "checkpoint_bytes", "macs_per_pixel", "gflops_512", "peak_memory_bytes", "latency_ms"],
+      "sha256_fields": ["contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256"]
+    },
+    "core_v3_decoder_asymmetry.csv": {
+      "fields": ["contract_version", "contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "dataset", "seed", "image_id", "q_index", "prefix_k", "decoder", "bitstream_sha256", "bytes", "bpp", "psnr", "ms_ssim", "lpips", "decoder_params", "decoder_macs", "latency_ms"],
+      "pairing_key": ["dataset", "seed", "image_id", "q_index", "prefix_k", "decoder"],
+      "finite_fields": ["bytes", "bpp", "psnr", "ms_ssim", "lpips", "decoder_params", "decoder_macs", "latency_ms"],
+      "sha256_fields": ["contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "bitstream_sha256"]
+    },
+    "core_v3_progressive_ordering.csv": {
+      "fields": ["contract_version", "contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "dataset", "seed", "image_id", "q_index", "ordering_id", "budget_percent", "received_group_mask", "cumulative_bytes", "bpp", "psnr", "ms_ssim", "lpips", "auc", "violation_flags"],
+      "pairing_key": ["dataset", "seed", "image_id", "q_index", "ordering_id", "budget_percent"],
+      "finite_fields": ["budget_percent", "cumulative_bytes", "bpp", "psnr", "ms_ssim", "lpips", "auc"],
+      "sha256_fields": ["contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256"]
+    },
+    "core_v3_bandwidth_detail.csv": {
+      "fields": ["contract_version", "contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "model_seed", "profile", "realization_id", "deadline_ms", "frame_id", "policy", "image_id", "true_goodput", "estimated_goodput", "packet_loss", "encoder_available_ms", "transmitter_available_ms", "decoder_available_ms", "wire_budget_bytes", "q_index", "nominal_prefix", "requested_prefix", "delivered_prefix", "payload_bytes", "network_bytes", "encoder_wait_ms", "encode_ms", "transmission_wait_ms", "transmission_ms", "decoder_wait_ms", "decode_ms", "delivered", "ms_ssim", "u_frame", "calibration_sha256", "trace_config_sha256"],
+      "pairing_key": ["model_seed", "profile", "realization_id", "deadline_ms", "frame_id", "policy"],
+      "finite_fields": ["deadline_ms", "frame_id", "true_goodput", "estimated_goodput", "packet_loss", "wire_budget_bytes", "payload_bytes", "network_bytes", "encoder_wait_ms", "encode_ms", "transmission_wait_ms", "transmission_ms", "decoder_wait_ms", "decode_ms", "delivered", "ms_ssim", "u_frame"],
+      "sha256_fields": ["contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "calibration_sha256", "trace_config_sha256"]
+    },
+    "core_v3_bandwidth_statistics.csv": {
+      "fields": ["contract_version", "contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256", "profile", "deadline_ms", "policy", "comparator", "metric", "effect_size", "ci_low", "ci_high", "raw_p", "holm_p", "noninferiority_margin", "gate_pass"],
+      "pairing_key": ["profile", "deadline_ms", "policy", "comparator", "metric"],
+      "finite_fields": ["deadline_ms", "effect_size", "ci_low", "ci_high", "raw_p", "holm_p"],
+      "sha256_fields": ["contract_sha256", "code_hash", "checkpoint_sha256", "manifest_sha256"]
+    }
+  }
+}
