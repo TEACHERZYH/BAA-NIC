@@ -1,0 +1,6 @@
+# Preserve byte-exact scientific artifacts whose recorded SHA-256 values include CRLF.
+/configs/core_v3_action_schedules*.json -text whitespace=cr-at-eol
+/data/*.csv -text whitespace=cr-at-eol
+/experiments/core_v3_decoder_extension/readiness_audit.json -text whitespace=cr-at-eol
+/experiments/core_v3_decoder_extension/readiness_audit.md -text whitespace=cr-at-eol
+/results/*.csv -text whitespace=cr-at-eol
