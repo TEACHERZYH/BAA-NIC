@@ -1,7 +1,6 @@
 # BAA-NIC
 
-本仓库提供论文 **BAA-NIC: Lightweight Asymmetric Neural Image Compression
-for UAV Remote Sensing over Time-Varying Wireless Links** 的最小可复现实验集合。
+
 
 BAA-NIC 面向发送端资源受限、服务器算力充足且无线带宽持续变化的遥感传输
 场景。核心设计由轻量发送端、同字节服务器质量补偿和可按带宽选择的分层实际
